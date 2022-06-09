@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook2
+  namespace: argo-cd
+spec:
+  project: default
+  source:
+    path: manifests/02-guestbook2
+    repoURL: https://github.com/ttarczynski/gitops-demo-argo-cd.git
+  destination:
+    namespace: guestbook2
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
