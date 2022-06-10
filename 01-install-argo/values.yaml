@@ -1,3 +1,6 @@
+controller:
+  args:
+    appResyncPeriod: 30
 server:
   service:
     type: LoadBalancer
